@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:views="clr-namespace:App10.Views"
+             x:Class="App10.Views.PointView">
+    <ContentView.Resources>
+        <ResourceDictionary Source="./Styles/PointViewStyle.xaml" />
+    </ContentView.Resources>
+  <ContentView.Content>
+        <Grid RowDefinitions="2*,*,7*">
+            <BoxView Grid.RowSpan="2"
+                     Style="{StaticResource boxviewStyle}"></BoxView>
+            <Label Text="Title"
+                   Style="{StaticResource titleStyle}"></Label>
+            <Grid Grid.Row="0"
+                  Grid.RowSpan="2"
+                  ColumnDefinitions="3*,7*"
+                  Style="{StaticResource searchContainerStyle}">
+                <Picker />
+                <StackLayout Grid.Column="1"
+                             Style="{StaticResource entryContainerStyle}">
+
+                    <Frame Style="{StaticResource entryFrameStyle}">
+                        <StackLayout Style="{StaticResource entrySubConatinerStyle}">
+                            <Path Data="{StaticResource MagnifyingGlassGeometry}"
+                                  Fill="#573753"
+                                  Style="{StaticResource glassStyle}" />
+
+                            <Entry Placeholder="SearchTip"
+                                   Text="{Binding SearchText}"
+                                   Style="{StaticResource entryStyle}"
+                                   ReturnCommand="{Binding SearchCommand}">
+                                <Entry.Behaviors>
+                                    <xct:UserStoppedTypingBehavior Command="{Binding SearchCommand}"
+                                                                   StoppedTypingTimeThreshold="1000"
+                                                                   MinimumLengthThreshold="3"
+                                                                   ShouldDismissKeyboardAutomatically="True" />
+                                </Entry.Behaviors>
+                            </Entry>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+            </Grid>
+
+            <xct:TabView Grid.Row="1"
+                         Grid.RowSpan="2"
+                         Style="{StaticResource subTabStyle}"
+                         >
+
+                <xct:TabViewItem Text="tab1"
+                                 Style="{StaticResource subTabItemStyle}">
+
+                    <views:View1 />
+                </xct:TabViewItem>
+                <xct:TabViewItem Text="tab2"
+                                 Style="{StaticResource subTabItemStyle}">
+
+                    <views:View1 />
+                </xct:TabViewItem>
+                <xct:TabViewItem Text="tab3"
+                                 Style="{StaticResource subTabItemStyle}">
+
+                    <views:View1 />
+                </xct:TabViewItem>
+            </xct:TabView>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

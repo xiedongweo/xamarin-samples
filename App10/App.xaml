@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:App10"
+             x:Class="App10.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <Color x:Key="SubTextColor">#95a8b6</Color>
+            <Color x:Key="BorderColor">#d2d7dd</Color>
+            <Color x:Key="DarkDetailColour">#573753</Color>
+
+            <SolidColorBrush x:Key="DarkDetailBrush"
+                             Color="{StaticResource DarkDetailColour}" />
+            <OnPlatform x:Key="TextSemiBold"
+                        x:TypeArguments="x:String">
+                <On Platform="iOS"
+                    Value="Poppins SemiBold" />
+                <On Platform="Android"
+                    Value="Poppins-SemiBold.ttf#Poppins SemiBold" />
+            </OnPlatform>
+            <Style x:Key="SubTextSemiBold"
+                   TargetType="Label">
+                <Setter Property="FontFamily"
+                        Value="{StaticResource TextSemiBold}" />
+                <Setter Property="FontSize"
+                        Value="14" />
+                <Setter Property="TextColor"
+                        Value="{DynamicResource SubTextColor}" />
+            </Style>
+            <x:String x:Key="MagnifyingGlassPath">m -41.050525,104.23957 c -2.898755,0.0242 -5.235914,2.38091 -5.23586,5.27977 3.6e-5,2.91613 2.364168,5.28004 5.2803,5.27979 0.950913,-1.1e-4 1.884146,-0.25704 2.70113,-0.74363 l 2.57142,2.57142 c 0.33209,0.3321 0.86679,0.3321 1.19889,0 0.33209,-0.33209 0.3321,-0.8668 0,-1.19889 l -2.46755,-2.46755 c 0.823099,-0.95757 1.275762,-2.17843 1.27589,-3.44114 -4.7e-5,-2.91592 -2.363859,-5.27973 -5.27978,-5.27977 -0.0148,-6e-5 -0.0296,-6e-5 -0.0444,0 z m 0.0997,1.74821 h 0.004 c 1.996061,8e-5 3.614169,1.61819 3.61425,3.61425 -8.7e-5,1.99606 -1.618192,3.61416 -3.61425,3.61424 -1.996058,-8e-5 -3.614163,-1.61818 -3.61425,-3.61424 8e-5,-1.99465 1.615988,-3.61225 3.61064,-3.61425 z</x:String>
+            <local:PathGeometryExtension x:Key="MagnifyingGlassGeometry"
+                                         Path="{StaticResource MagnifyingGlassPath}" />
+
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

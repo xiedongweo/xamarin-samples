@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xaml-comp compile="true" ?>
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
+                    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <ControlTemplate x:Key="TabItemTemplate">
+        <Grid RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Image Grid.Row="0"
+                   HorizontalOptions="Center"
+                   Aspect="AspectFit"
+                   WidthRequest="40"
+                   Margin="2"
+                   Source="{TemplateBinding CurrentIcon}" />
+            <Label Grid.Row="1"
+                   HorizontalOptions="Center"
+                   FontSize="{TemplateBinding FontSize}"
+                   Text="{TemplateBinding Text}"
+                   TextColor="{TemplateBinding CurrentTextColor}" />
+            <Grid Grid.RowSpan="2"
+                  HeightRequest="15"
+                  WidthRequest="15"
+                  VerticalOptions="Start"
+                  HorizontalOptions="End">
+                <Frame Margin="-10,0,10,0"
+                       CornerRadius="8"
+                       Padding="0"
+                       HasShadow="False"
+                       BackgroundColor="{TemplateBinding BadgeBackgroundColor}">
+                    <Label Text="{TemplateBinding BadgeText}"
+                           TextColor="{TemplateBinding BadgeTextColor}"
+                           FontSize="9"
+                           VerticalTextAlignment="Center"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"></Label>
+                </Frame>
+            </Grid>
+        </Grid>
+    </ControlTemplate>
+    
+    <Style x:Key="CustomTabStyle"
+           TargetType="xct:TabView">
+        <Setter Property="IsTabTransitionEnabled"
+                Value="True" />
+        <Setter Property="TabStripHeight"
+                Value="48" />
+        <Setter Property="TabContentBackgroundColor"
+                Value="White" />
+        <Setter Property="TabStripPlacement"
+                Value="Bottom" />
+    </Style>
+
+    <Style x:Key="CustomTabItem"
+           TargetType="xct:TabViewItem">
+        <Setter Property="BadgeBackgroundColor"
+                Value="White" />
+        <Setter Property="TextColor"
+                Value="#CCCCCC" />
+        <Setter Property="TextColorSelected"
+                Value="#A593E0" />
+        <Setter Property="ControlTemplate"
+                Value="{StaticResource TabItemTemplate}"/>
+    </Style>
+
+    
+</ResourceDictionary>

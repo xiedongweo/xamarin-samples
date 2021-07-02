@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:views="clr-namespace:App10.Views"
+             x:Class="App10.MainPage">
+    <ContentPage.Resources>
+        <ResourceDictionary Source="./Views/Styles/AppMainStyle.xaml" />
+    </ContentPage.Resources>
+    <Grid>
+        
+        <xct:TabView x:Name="tabview"
+                     Style="{StaticResource CustomTabStyle}"
+                     SelectedIndex="{Binding TabSelectedIndex}">
+            <xct:TabView.Behaviors>
+                <xct:EventToCommandBehavior EventName="SelectionChanged"
+                                            Command="{Binding TabSelectionCommand}" />
+            </xct:TabView.Behaviors>
+            
+            <xct:TabViewItem IsSelected="True"
+                             Icon="home"
+                             IconSelected="homes"
+                             Text="Home"
+                             Style="{StaticResource CustomTabItem}">
+                <views:HomeView x:Name="homeView" />
+            </xct:TabViewItem>
+
+            <xct:TabViewItem 
+                             Text="Alarm"
+                             Icon="home"
+                             IconSelected="homes"
+                             BadgeText="12"
+                             BadgeBackgroundColor="Red"
+                             BadgeTextColor="White"
+                             Style="{StaticResource CustomTabItem}">
+                <views:AlarmView x:Name="alarmView" />
+            </xct:TabViewItem>
+
+            <xct:TabViewItem Icon="home"
+                             IconSelected="homes"
+                             Text="Point"
+                             Style="{StaticResource CustomTabItem}">
+                <views:PointView x:Name="pointView" />
+            </xct:TabViewItem>
+
+            <xct:TabViewItem Icon="home"
+                             IconSelected="homes"
+                             Text="Device"
+                             Style="{StaticResource CustomTabItem}">
+                <views:DeviceView x:Name="deviceView" />
+            </xct:TabViewItem>
+
+            <xct:TabViewItem Icon="home"
+                IconSelected="homes"
+                Text="Setting"
+                             Style="{StaticResource CustomTabItem}">
+                <views:SettingView x:Name="settingView" />
+            </xct:TabViewItem>
+        </xct:TabView>
+    </Grid>
+
+</ContentPage>
